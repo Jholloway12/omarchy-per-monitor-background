@@ -2,6 +2,8 @@
 
 Give each monitor its own background in Omarchy, using the background picker you already know.
 
+![Two monitors with different backgrounds: a daytime launch on the portrait monitor, a sunset launch on the landscape monitor](preview.jpg)
+
 Double-click the desktop on any monitor and pick an image. Only that monitor changes. There's no bar widget or config file to learn. If windows cover the desktop, the background picker hotkey can do the same for the focused monitor (see below).
 
 This is a small change to Omarchy's built-in background plugin (`omarchy.background`), which it replaces. Everything else works the same, including the theme switch animation and right-button double-click for the theme switcher.
@@ -68,3 +70,5 @@ To also forget saved picks, delete `~/.local/state/omarchy/background-monitors.j
 ## License
 
 MIT. Based on Omarchy's `omarchy.background` plugin, © David Heinemeier Hansson, also MIT. See [LICENSE](LICENSE).
+
+The preview shows backgrounds from the [Liftoff theme](https://github.com/tcballard/omarchy-theme-liftoff). Its launch photograph is credited to SpaceX; see that theme's [CREDITS.md](https://github.com/tcballard/omarchy-theme-liftoff/blob/main/CREDITS.md). The plugin's MIT license doesn't cover the preview image.
