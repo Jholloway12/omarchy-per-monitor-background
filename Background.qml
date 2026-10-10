@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
 import QtQuick
@@ -154,6 +155,11 @@ Item {
     bgSwitchProc.running = true
   }
 
+  function openSelectorForFocused() {
+    var monitor = Hyprland.focusedMonitor
+    if (monitor && monitor.name) openSelector(monitor.name)
+  }
+
   readonly property string bgSwitchScript: "theme_name=$(cat \"$HOME/.local/state/omarchy/current/theme.name\" 2>/dev/null); " +
     "omarchy-menu-images --selected \"$1\" \"$HOME/.local/state/omarchy/current/theme/backgrounds\" \"$HOME/.config/omarchy/backgrounds/$theme_name\""
 
@@ -191,6 +197,16 @@ Item {
 
   IpcHandler {
     target: "background"
+
+    // `omarchy-shell background pickFocused` opens the picker for the
+    // focused monitor; `pick <monitor>` for a named one.
+    function pickFocused(): void {
+      root.openSelectorForFocused()
+    }
+
+    function pick(screenName: string): void {
+      root.openSelector(screenName)
+    }
 
     function refresh(): void {
       root.refreshBackground()

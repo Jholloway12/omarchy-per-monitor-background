@@ -2,7 +2,7 @@
 
 Give each monitor its own background in Omarchy, using the background picker you already know.
 
-Double-click the desktop on any monitor and pick an image. Only that monitor changes. There's no bar widget, hotkey or config file to learn.
+Double-click the desktop on any monitor and pick an image. Only that monitor changes. There's no bar widget or config file to learn. If windows cover the desktop, the background picker hotkey can do the same for the focused monitor (see below).
 
 This is a small change to Omarchy's built-in background plugin (`omarchy.background`), which it replaces. Everything else works the same, including the theme switch animation and right-button double-click for the theme switcher.
 
@@ -26,6 +26,23 @@ Enabling it turns off the built-in `omarchy.background` automatically. A shell r
 - **Pick an image.** It's applied to the monitor you double-clicked, and the other monitors keep theirs.
 - **Right-button double-click** still opens the theme switcher.
 
+### From the keyboard or the Omarchy menu
+
+When windows cover the desktop, you can open the picker for the focused monitor instead:
+
+```bash
+omarchy-shell background pickFocused        # the focused monitor
+omarchy-shell background pick DP-2          # a named monitor
+```
+
+Out of the box, Omarchy's background picker hotkey (SUPER + CTRL + SPACE) and **Menu → Style → Background** still change the shared background on every monitor, which clears per-monitor picks. To make both per-monitor, add this line inside the braces of `~/.config/omarchy/extensions/omarchy-menu.jsonc`:
+
+```jsonc
+"style.background": {"action": "omarchy-shell background pickFocused"},
+```
+
+The hotkey opens that same menu item, so this one line covers both. The plugin never edits your config for you. To undo it, delete the line.
+
 ### How picks are kept
 
 - Picks are saved in `~/.local/state/omarchy/background-monitors.json`, keyed by monitor name (as listed by `hyprctl monitors`), so they survive restarts.
@@ -40,7 +57,7 @@ omarchy plugin enable omarchy.background
 omarchy restart shell
 ```
 
-To also forget saved picks, delete `~/.local/state/omarchy/background-monitors.json`.
+To also forget saved picks, delete `~/.local/state/omarchy/background-monitors.json`. If you added the `style.background` line to `omarchy-menu.jsonc`, remove it too.
 
 ## Notes
 

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "io.github.jholloway12.per-monitor-background",
   "name": "Per-Monitor Background",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "John Holloway",
   "license": "MIT",
-  "description": "Double-click the desktop on any monitor and pick an image to change the background on that monitor only.",
+  "description": "Pick a background for each monitor: double-click its desktop, or use the background picker hotkey or menu for the focused monitor.",
   "kinds": [
     "service"
   ],
