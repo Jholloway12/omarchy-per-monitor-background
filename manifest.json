@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.jholloway12.per-monitor-background",
+  "name": "Per-Monitor Background",
+  "version": "1.0.0",
+  "author": "John Holloway",
+  "license": "MIT",
+  "description": "Double-click the desktop on any monitor and pick an image to change the background on that monitor only.",
+  "kinds": [
+    "service"
+  ],
+  "entryPoints": {
+    "service": "Background.qml"
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.background"
+  }
+}
