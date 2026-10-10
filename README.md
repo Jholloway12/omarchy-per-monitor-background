@@ -38,10 +38,10 @@ omarchy-shell background pick DP-2          # a named monitor
 Out of the box, Omarchy's background picker hotkey (SUPER + CTRL + SPACE) and **Menu → Style → Background** still change the shared background on every monitor, which clears per-monitor picks. To make both per-monitor, add this line inside the braces of `~/.config/omarchy/extensions/omarchy-menu.jsonc`:
 
 ```jsonc
-"style.background": {"action": "omarchy-shell background pickFocused"},
+"style.background": {"icon":"","label":"Background","aliases":["background","wallpaper"],"action":"omarchy-shell background pickFocused"},
 ```
 
-The hotkey opens that same menu item, so this one line covers both. The plugin never edits your config for you. To undo it, delete the line.
+The hotkey opens that same menu item, so this one line covers both. Keep the icon, label and aliases: Omarchy 4.0.4 resets any field an override leaves out. Without the `background` alias, the hotkey opens the main menu instead of the picker. The plugin never edits your config for you. To undo it, delete the line.
 
 ### How picks are kept
 
